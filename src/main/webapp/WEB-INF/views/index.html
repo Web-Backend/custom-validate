@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-
-    <title>Input PhoneNumber</title>
+    <meta charset="UTF-8">
+    <title th:text="#{index.title}"></title>
 </head>
 <body>
-<form action="#" th:action="@{/}" th:object="${phonemunber}"
+Language: <a href="?lang=en">English</a>  |  <a href="?lang=vn">Việt nam</a>  |  <a href="?lang=cn">Chinese</a>
+<form action="#" th:action="@{/}" th:object="${phoneNumber}"
       method="POST">
     <table>
         <tr>
-            <td>PhoneNumber</td>
+            <td th:text="#{index.number_label}"></td>
             <td><input type="text" th:field="*{number}"/></td>
-            <td th:if="${#fields.hasErrors('number')}" th:errors="*{number}">Name Error</td>
+            <td th:if="${#fields.hasErrors('number')}" th:errors="*{number}">Number Error</td>
+        </tr>
+        <tr>
+            <td><button type="submit" th:value="#{index.submit}"><span th:text="#{index.submit}"></span></td>
         </tr>
     </table>
-    <button type="submit">submit</button>
+
 </form>
 </body>
 </html>

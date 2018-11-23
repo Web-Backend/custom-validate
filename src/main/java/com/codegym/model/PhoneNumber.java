@@ -27,15 +27,15 @@ public class PhoneNumber implements Validator {
     public void validate(Object target, Errors errors) {
         PhoneNumber phoneNumber = (PhoneNumber) target;
         String number = phoneNumber.getNumber();
-        ValidationUtils.rejectIfEmpty(errors, "number", "number.empty");
+        ValidationUtils.rejectIfEmpty(errors, "number", "index.number.empty");
         if (number.length() > 11 || number.length() < 10) {
-            errors.rejectValue("number", "number.length");
+            errors.rejectValue("number", "index.number.length");
         }
         if (!number.startsWith("0")) {
-            errors.rejectValue("number", "number.startsWith");
+            errors.rejectValue("number", "index.number.startsWith");
         }
         if (!number.matches("(^$|[0-9]*$)")) {
-            errors.rejectValue("number", "number.matches");
+            errors.rejectValue("number", "index.number.matches");
         }
     }
 }
